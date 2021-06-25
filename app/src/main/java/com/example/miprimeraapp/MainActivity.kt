@@ -1,10 +1,12 @@
 package com.example.miprimeraapp
 
-import android.support.v7.app.AppCompatActivity
+
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.EditText
+
 
 const val EXTRA_MESSAGE = "com.example.miprimeraapp.MESSAGE"
 
@@ -22,4 +24,15 @@ class MainActivity : AppCompatActivity() {
         }
         startActivity(intent)
     }
+
+    fun verFragmentRojo(view: View) {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentContainer, BlankFragment1()).commit()
+    }
+
+    fun verFragmentAzul(view: View) {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentContainer, BlankFragment2()).commit()
+    }
+
 }
