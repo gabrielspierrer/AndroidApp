@@ -9,6 +9,7 @@ import android.widget.EditText
 
 
 const val EXTRA_MESSAGE = "com.example.miprimeraapp.MESSAGE"
+var cambiar = false
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,14 +26,15 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun verFragmentRojo(view: View) {
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, BlankFragment1()).commit()
-    }
-
-    fun verFragmentAzul(view: View) {
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, BlankFragment2()).commit()
+    fun verFragment(view: View) {
+        cambiar = !cambiar
+        if (cambiar == true) {
+            supportFragmentManager.beginTransaction()
+                    .add(R.id.fragmentContainer, BlankFragment1()).commit()
+        } else {
+            supportFragmentManager.beginTransaction()
+                    .add(R.id.fragmentContainer, BlankFragment2()).commit()
+        }
     }
 
 }
